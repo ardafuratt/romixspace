@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Romix Studio</title>
+<meta name="description" content="Romix Studio — web tasarımı, arayüz geliştirme, mobil uygulama ve özel yazılım üzerine çalışan dijital tasarım stüdyosu.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://romixspace.com/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta property="og:title" content="Romix Studio">
+<meta property="og:description" content="Web tasarımı, arayüz geliştirme, mobil uygulama ve özel yazılım.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Romix Studio">
+<meta property="og:url" content="https://romixspace.com/">
+<meta property="og:image" content="https://romixspace.com/img/obsidian-security.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://romixspace.com/#studio",
+  "name": "Romix Studio",
+  "description": "Web sitesi tasarımı, mobil uygulama geliştirme ve iş süreçleri otomasyonu üzerine çalışan dijital tasarım ve yazılım stüdyosu.",
+  "url": "https://romixspace.com/",
+  "email": "yolarkadasim872@gmail.com",
+  "areaServed": { "@type": "Country", "name": "Türkiye" },
+  "knowsLanguage": ["tr", "en"],
+  "hasPart": { "@type": "WebPage", "name": "Hizmetler", "url": "https://romixspace.com/hizmetler.html" }
+}
+</script>
+</head>
+<body class="is-loading">
+
+  <!-- Arka plan videosu: giriş bir kez, ardından dikişsiz bumerang döngü -->
+  <div class="bg" aria-hidden="true">
+    <!-- Giriş yalnızca masaüstünde; telefonda döngü videosu tek başına çalışıyor -->
+    <video class="bg-video bg-intro" muted playsinline preload="auto"
+           data-wide="video/bg.mp4"></video>
+    <video class="bg-video bg-loop" muted playsinline preload="auto" loop
+           data-wide="video/bg-loop.mp4" data-narrow="video/bg-loop-m.mp4"></video>
+  </div>
+
+  <!-- Arama motorları ve ekran okuyucular için düz metin içerik -->
+  <div class="sr-only" id="seo"></div>
+
+  <!-- Yükleme ekranı -->
+  <div class="loader" id="loader">
+    <div class="loader-bars"><i></i><i></i><i></i></div>
+  </div>
+
+  <!-- Kartların çizildiği WebGL yüzeyi -->
+  <canvas class="gl" id="gl" aria-hidden="true"></canvas>
+
+  <!-- Yatay proje şeridi (başlıklar ve tıklama alanları) -->
+  <main class="stage" id="stage">
+    <div class="track" id="track"></div>
+  </main>
+
+  <!-- Tüm projeler (metin indeksi) -->
+  <section class="index-view" id="indexView" aria-hidden="true">
+    <ul class="index-list" id="indexList"></ul>
+    <div class="index-preview" id="indexPreview"></div>
+  </section>
+
+  <!-- Ortada açılan paneller -->
+  <div class="panel" id="panelProfile" aria-hidden="true">
+    <div class="panel-inner">
+      <p class="panel-bio" data-t="bio"></p>
+      <p class="label panel-stats" data-t="stats"></p>
+      <ul class="panel-links" id="socialLinks" lang="en"></ul>
+    </div>
+  </div>
+
+  <div class="panel" id="panelContact" aria-hidden="true">
+    <div class="panel-inner">
+      <p class="panel-bio" data-t="contactText"></p>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="field">
+          <input type="email" name="email" autocomplete="email" spellcheck="false" required
+                 aria-label="E-posta" data-ph="emailPlaceholder">
+        </div>
+        <button type="submit" aria-label="Gönder">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+      <p class="label form-status" id="formStatus" role="status" aria-live="polite"></p>
+      <p class="panel-direct">
+        <a class="wa-link" href="https://wa.me/905466352571?text=Merhaba%2C%20Romix%20Studio%20—%20bir%20proje%20hakk%C4%B1nda%20konu%C5%9Fmak%20istiyorum."
+           target="_blank" rel="noopener" data-t="whatsapp"></a>
+        <span aria-hidden="true">·</span>
+        <a href="tel:+905466352571">0546 635 25 71</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="panel panel-project" id="panelProject" aria-hidden="true">
+    <div class="panel-inner">
+      <p class="label project-meta" id="projectMeta"></p>
+      <h2 class="project-title" id="projectTitle"></h2>
+      <p class="panel-bio" id="projectDesc"></p>
+      <a class="label project-link" id="projectLink" target="_blank" rel="noopener"></a>
+    </div>
+  </div>
+
+  <!-- Sabit arayüz -->
+  <div class="ui">
+    <div class="ui-row ui-top">
+      <a class="brand link" href="#" id="brand" lang="en">
+        <img class="brand-mark" id="brandMark" src="img/logo.png" alt="" onerror="this.remove()">
+        <span class="label" id="brandText">Romix Studio</span>
+      </a>
+      <div class="ui-cluster">
+        <a class="label link nav-services" id="navServices" href="hizmetler.html" data-t="services"></a>
+        <button type="button" class="label link" id="btnLang" aria-label="Dil / Language">TR<span class="sep">/</span><span class="dim">EN</span></button>
+        <button type="button" class="label link" id="btnProfile" data-t="profile"></button>
+        <button type="button" class="label link ui-close" id="btnClose">
+          <span data-t="close"></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="ui-row ui-bottom">
+      <nav class="label nav" aria-label="Görünüm">
+        <button type="button" id="navFeatured" class="is-active" data-t="featured"></button>
+        <span aria-hidden="true">/</span>
+        <button type="button" id="navFull" data-t="full"></button>
+      </nav>
+      <button type="button" class="label link" id="btnContact" data-t="contact"></button>
+    </div>
+  </div>
+
+  <div class="scrim" id="scrim"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.149.0/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="js/content.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
