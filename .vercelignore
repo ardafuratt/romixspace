@@ -1,0 +1,4 @@
+# Sayfa üreticisi ve yardımcıları yayına çıkmıyor.
+# Üretilen HTML dosyaları depoya işlendiği için yayında derleme adımı yok;
+# bu klasörün sunucuda bulunmasına gerek yok.
+build/

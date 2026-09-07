@@ -742,6 +742,17 @@ const FRAGMENT_SHADER = /* glsl */ `
     } else {
       link.hidden = true;
     }
+
+    // Projenin kendi sayfası — canlı linkin yanındaki ikinci çıkış
+    var more = $('#projectMore');
+    if (p.slug) {
+      more.href = '/projeler/' + p.slug + '/';
+      more.textContent = t().projectPage;
+      more.hidden = false;
+    } else {
+      more.hidden = true;
+    }
+
     openPanel($('#panelProject'));
   }
 
@@ -824,25 +835,12 @@ const FRAGMENT_SHADER = /* glsl */ `
       return '<li><a href="' + s.url + '" target="_blank" rel="noopener">' + s.label + '</a></li>';
     }).join('') + '<li><a href="mailto:' + SITE.email + '">' + t().emailLabel + '</a></li>';
 
-    buildSeo();
     status.textContent = '';
   }
 
-  function buildSeo() {
-    $('#seo').innerHTML = '' +
-      '<h1>' + SITE.brand + '</h1>' +
-      '<p>' + t().bio + '</p>' +
-      '<p><a href="hizmetler.html">' + t().services + '</a></p>' +
-      '<p>' + t().stats + '</p>' +
-      '<h2>' + t().featured + '</h2><ul>' +
-      SITE.projects.map(function (p) {
-        var name = p.url ? '<a href="' + p.url + '">' + p.title + '</a>' : p.title;
-        return '<li>' + name + ' (' + p.year + ') — ' + (p.desc ? p.desc[lang] : '') + '</li>';
-      }).join('') + '</ul>' +
-      '<h2>' + t().contact + '</h2><ul>' +
-      SITE.social.map(function (s) { return '<li><a href="' + s.url + '">' + s.label + '</a></li>'; }).join('') +
-      '<li><a href="mailto:' + SITE.email + '">' + SITE.email + '</a></li></ul>';
-  }
+  /* #seo bloğu artık index.html içinde statik duruyor: tuvalin metin karşılığı
+     olduğu için sayfayla birlikte gelmesi, JavaScript'in üretmesinden daha
+     doğru. Burada üzerine yazmıyoruz. */
 
   $('#btnLang').addEventListener('click', function () {
     lang = lang === 'tr' ? 'en' : 'tr';

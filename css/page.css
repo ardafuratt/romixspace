@@ -515,10 +515,255 @@ footer {
 
 /* --- Görünürlük animasyonu ------------------------------------------------ */
 
-.rise { opacity: 0; transform: translateY(1.6rem); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
-.rise.is-in { opacity: 1; transform: none; }
+/* .js yalnızca head'deki satır içi betik çalıştığında ekleniyor. JavaScript
+   kapalıysa bu kural hiç uygulanmıyor ve içerik gizlenmeden duruyor —
+   içeriğin görünürlüğü betiğe bağlı bırakılmamalı. */
+.js .rise { opacity: 0; transform: translateY(1.6rem); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.js .rise.is-in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .rise { opacity: 1; transform: none; transition: none; }
+  .js .rise { opacity: 1; transform: none; transition: none; }
 }
+
+
+/* ==========================================================================
+   İÇERİK MİMARİSİ BİLEŞENLERİ
+   Hizmet, proje ve blog sayfalarının paylaştığı parçalar. Mevcut görsel dil
+   (siyah zemin, ince çizgi, küçük büyük harf etiket) aynen sürüyor.
+   ========================================================================== */
+
+/* --- İçeriğe geç bağlantısı ----------------------------------------------- */
+
+.skip {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -120%);
+  z-index: 100;
+  padding: 1rem 2rem;
+  background: var(--fg);
+  color: #000;
+  font-size: 1.3rem;
+  text-decoration: none;
+  border-radius: 0 0 0.8rem 0.8rem;
+  transition: transform 0.25s var(--ease);
+}
+
+.skip:focus { transform: translate(-50%, 0); }
+
+/* Klavyeyle gezinenler için görünür odak halkası */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+  border-radius: 0.3rem;
+}
+
+
+/* --- Kırıntı yolu --------------------------------------------------------- */
+
+.crumbs {
+  border-bottom: 1px solid var(--line);
+  padding: 1.4rem 0;
+  font-size: 1.2rem;
+}
+
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+}
+
+.crumbs li + li::before {
+  content: '/';
+  margin-right: 0.9rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.crumbs a { color: var(--muted); text-decoration: none; transition: color 0.3s var(--ease); }
+.crumbs a:hover { color: var(--fg); }
+.crumbs [aria-current='page'] { color: rgba(255, 255, 255, 0.85); }
+
+
+/* --- İlgili sayfa bağlantıları -------------------------------------------- */
+
+.related,
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(28rem, 100%), 1fr));
+  gap: 1.2rem;
+  margin-top: clamp(2.6rem, 4vw, 4rem);
+  padding: 0;
+  list-style: none;
+}
+
+.related a,
+.contact-cards a {
+  display: block;
+  height: 100%;
+  padding: 2.4rem 2.4rem 2.6rem;
+  border: 1px solid var(--line);
+  border-radius: 1.4rem;
+  background: var(--panel);
+  text-decoration: none;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.related a:hover,
+.contact-cards a:hover {
+  border-color: rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.related-title {
+  display: block;
+  font-size: 1.85rem;
+  font-weight: 500;
+  letter-spacing: -0.022em;
+}
+
+.related-title::after {
+  content: ' →';
+  color: var(--muted);
+}
+
+.related-desc {
+  display: block;
+  margin-top: 0.7rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+/* Bölüm içinde ara başlık — hizmet gruplarını ayırır */
+.hub-h3 {
+  margin-top: clamp(3.4rem, 5vw, 4.6rem);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+
+/* --- Sayfa içi fiyat satırı ------------------------------------------------ */
+
+.price-inline {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  margin-top: 0;
+  padding: 2.4rem 2.8rem;
+  border: 1px solid var(--line);
+  border-radius: 1.4rem;
+  background: var(--panel);
+  max-width: 56rem;
+}
+
+.price-inline .label { flex: 1 0 100%; }
+.price-inline b { font-size: clamp(3.2rem, 4.4vw, 4.2rem); font-weight: 500; line-height: 1; letter-spacing: -0.04em; }
+.price-inline em { font-style: normal; font-size: 1.35rem; color: var(--muted); }
+
+.price-more { margin-top: 1.8rem; font-size: 1.4rem; }
+.price-more a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+.price-more a:hover { color: var(--fg); border-color: var(--fg); }
+
+
+/* --- Proje sayfası -------------------------------------------------------- */
+
+.project-hero { padding-bottom: clamp(2rem, 4vw, 4rem); }
+
+.project-hero img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 1.6rem;
+}
+
+
+/* --- Blog ----------------------------------------------------------------- */
+
+.posts { display: grid; gap: 1.2rem; margin-top: clamp(2.6rem, 4vw, 4rem); }
+
+.posts a {
+  display: block;
+  padding: 2.8rem 3rem 3rem;
+  border: 1px solid var(--line);
+  border-radius: 1.4rem;
+  background: var(--panel);
+  text-decoration: none;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.posts a:hover { border-color: rgba(255, 255, 255, 0.34); background: rgba(255, 255, 255, 0.055); }
+.posts .post-cat { display: block; }
+.posts .post-title { display: block; margin-top: 1.2rem; font-size: clamp(2rem, 2.6vw, 2.6rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; }
+.posts .post-desc { display: block; margin-top: 1rem; max-width: 70ch; font-size: 1.6rem; color: rgba(255, 255, 255, 0.68); }
+.posts .post-meta { display: block; margin-top: 1.6rem; }
+
+.post-head { padding-bottom: clamp(1.6rem, 3vw, 2.6rem); }
+
+/* Yazı gövdesi — listeler burada işaretli, geri kalan tipografi ortak */
+.prose { padding-bottom: clamp(2rem, 4vw, 4rem); }
+.prose h2 { margin-top: clamp(4.4rem, 6vw, 6rem); font-size: clamp(2.2rem, 3vw, 3rem); max-width: 26ch; }
+.prose h2:first-child { margin-top: 0; }
+.prose h3 { margin-top: 3.2rem; }
+.prose p { font-size: 1.7rem; line-height: 1.7; color: rgba(255, 255, 255, 0.82); }
+
+.prose ul,
+.prose ol {
+  margin: 2rem 0 0;
+  padding-left: 2.4rem;
+  max-width: 70ch;
+  list-style: disc;
+}
+
+.prose ol,
+.prose ol.numbered { list-style: decimal; }
+
+.prose li {
+  margin-top: 1rem;
+  font-size: 1.65rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.prose li::marker { color: var(--muted); }
+.prose strong { color: var(--fg); font-weight: 500; }
+.prose a { color: var(--fg); text-decoration: underline; text-underline-offset: 0.3rem; text-decoration-color: var(--line); }
+.prose a:hover { text-decoration-color: var(--fg); }
+
+
+/* --- Alt bilgi sütunları --------------------------------------------------- */
+
+.foot-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+  gap: 3rem 2.4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 3rem;
+}
+
+.foot-col ul { margin-top: 1.4rem; }
+.foot-col li { margin-top: 0.8rem; }
+
+.foot-col a {
+  font-size: 1.45rem;
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: none;
+  letter-spacing: 0;
+  text-transform: none;
+  transition: color 0.3s var(--ease);
+}
+
+.foot-col a:hover { color: var(--fg); }

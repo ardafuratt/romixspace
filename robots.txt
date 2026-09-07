@@ -1,4 +1,11 @@
+# Romix Studio — https://www.romixspace.com
+# Tüm genel içerik taranabilir. CSS, JS, görsel ve video engellenmiyor;
+# sayfaların doğru işlenmesi için bunlara erişim gerekiyor.
+
 User-agent: *
 Allow: /
 
-Sitemap: https://romixspace.com/sitemap.xml
+# Kaynak ve şablon dosyaları — yayınlanan sayfa değil
+Disallow: /build/
+
+Sitemap: https://www.romixspace.com/sitemap.xml

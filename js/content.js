@@ -33,6 +33,7 @@ const SITE = {
       sent: 'Aldık, teşekkürler. En kısa sürede dönüyoruz.',
       invalid: 'Geçerli bir e-posta adresi gir.',
       visit: 'Siteyi gör',
+      projectPage: 'Proje sayfasını gör →',
       visitApp: 'Google Play’de gör',
       emailLabel: 'E-posta',
       close:      'Kapat',
@@ -53,6 +54,7 @@ const SITE = {
       sent: 'Got it, thank you. We will be in touch shortly.',
       invalid: 'Please enter a valid email address.',
       visit: 'Visit site',
+      projectPage: 'See project page →',
       visitApp: 'View on Google Play',
       emailLabel: 'Email',
       close:      'Close',
@@ -72,6 +74,7 @@ const SITE = {
   projects: [
     {
       id: 'obsidian-security',
+      slug: 'obsidian-security',
       title: 'Obsidian Security',
       year: '2025',
       image: 'img/obsidian-security.jpg', ratio: '16/9', hue: 200, featured: true,
@@ -84,6 +87,7 @@ const SITE = {
     },
     {
       id: 'makinafleo',
+      slug: 'makinafleo',
       title: 'MakinaFleo',
       year: '2025',
       image: 'img/makinafleo.jpg', ratio: '16/10', hue: 180, featured: true,
@@ -96,6 +100,7 @@ const SITE = {
     },
     {
       id: 'utku-denizalti',
+      slug: 'utku-denizalti',
       title: 'UTKU Denizaltısı',
       year: '2025',
       image: 'img/utku-denizalti.jpg', ratio: '16/9', hue: 205, featured: true,
@@ -108,6 +113,7 @@ const SITE = {
     },
     {
       id: 'sera-guzellik',
+      slug: 'sera-guzellik',
       title: 'Sera Güzellik',
       year: '2025',
       image: 'img/sera-guzellik.jpg', ratio: '3/2', hue: 30, featured: true,
@@ -120,6 +126,7 @@ const SITE = {
     },
     {
       id: 'aslan-oto',
+      slug: 'aslan-oto-kurtarma',
       title: 'Aslan Oto Kurtarma',
       year: '2025',
       image: 'img/aslan-oto.jpg', ratio: '3/2', hue: 35, featured: true,
@@ -132,6 +139,7 @@ const SITE = {
     },
     {
       id: 'kadirli-servis',
+      slug: 'turkmenoglu-elektronik',
       title: 'Türkmenoğlu Elektronik',
       year: '2025',
       image: 'img/kadirli-servis.jpg', ratio: '4/3', hue: 160, featured: true,
@@ -144,6 +152,7 @@ const SITE = {
     },
     {
       id: 'yolarkadasim-web',
+      slug: 'yolarkadasim-web',
       title: 'YolArkadaşım Web',
       year: '2025',
       image: 'img/yolarkadasim-web.jpg', ratio: '16/10', hue: 320, featured: true,
@@ -156,6 +165,7 @@ const SITE = {
     },
     {
       id: 'yolarkadasim-app',
+      slug: 'yolarkadasim',
       title: 'YolArkadaşım',
       year: '2025',
       image: 'img/yolarkadasim-app.jpg', ratio: '16/10', hue: 40, featured: true, app: true,
@@ -168,6 +178,7 @@ const SITE = {
     },
     {
       id: 'ramazan-imsakiyesi',
+      slug: 'ramazan-imsakiyesi',
       title: 'Ramazan İmsakiyesi 2026',
       year: '2025',
       image: 'img/ramazan-imsakiyesi.jpg', ratio: '4/3', hue: 150, featured: true, app: true,
@@ -180,6 +191,7 @@ const SITE = {
     },
     {
       id: 'word-vortex',
+      slug: 'word-vortex',
       title: 'Word Vortex',
       year: '2025',
       image: 'img/word-vortex.jpg', ratio: '3/2', hue: 265, featured: true, app: true,

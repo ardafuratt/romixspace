@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Mobil Uygulama Geliştirme Süreci | Romix Studio</title>
+<meta name="description" content="Mobil uygulama geliştirme süreci adım adım: kapsam çıkarma, tasarım, geliştirme, test ve mağaza yayını. Native mi cross-platform mu, maliyeti ne belirler?">
+<link rel="canonical" href="https://www.romixspace.com/blog/mobil-uygulama-gelistirme-sureci/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#000000">
+<meta name="author" content="Romix Studio">
+<meta name="google-site-verification" content="h_aI9H-UP1krvOFIwYOFU1B_mkMduNo80O0kUVKPEeU" />
+
+<link rel="icon" href="/img/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/img/logo.png">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Romix Studio">
+<meta property="og:title" content="Mobil Uygulama Geliştirme Süreci | Romix Studio">
+<meta property="og:description" content="Mobil uygulama geliştirme süreci adım adım: kapsam çıkarma, tasarım, geliştirme, test ve mağaza yayını. Native mi cross-platform mu, maliyeti ne belirler?">
+<meta property="og:url" content="https://www.romixspace.com/blog/mobil-uygulama-gelistirme-sureci/">
+<meta property="og:image" content="https://www.romixspace.com/img/obsidian-security.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="Mobil uygulama geliştirme süreci: fikirden mağazaya">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mobil Uygulama Geliştirme Süreci | Romix Studio">
+<meta name="twitter:description" content="Mobil uygulama geliştirme süreci adım adım: kapsam çıkarma, tasarım, geliştirme, test ve mağaza yayını. Native mi cross-platform mu, maliyeti ne belirler?">
+<meta name="twitter:image" content="https://www.romixspace.com/img/obsidian-security.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/page.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.romixspace.com/#studio",
+      "name": "Romix Studio",
+      "alternateName": "Romix Space",
+      "description": "Web sitesi tasarımı, mobil uygulama geliştirme ve iş süreçleri otomasyonu üzerine çalışan bağımsız dijital tasarım ve yazılım stüdyosu.",
+      "url": "https://www.romixspace.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.romixspace.com/#logo",
+        "url": "https://www.romixspace.com/img/logo.png",
+        "width": 179,
+        "height": 105
+      },
+      "image": "https://www.romixspace.com/img/obsidian-security.jpg",
+      "email": "yolarkadasim872@gmail.com",
+      "telephone": "+90 546 635 25 71",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Türkiye"
+      },
+      "knowsLanguage": [
+        "tr",
+        "en"
+      ],
+      "sameAs": [
+        "https://play.google.com/store/apps/dev?id=romixstudio",
+        "https://instagram.com/romixstudio",
+        "https://linkedin.com/company/romixstudio",
+        "https://github.com/romixstudio"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "yolarkadasim872@gmail.com",
+        "telephone": "+90 546 635 25 71",
+        "availableLanguage": [
+          "Turkish",
+          "English"
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.romixspace.com/#website",
+      "url": "https://www.romixspace.com/",
+      "name": "Romix Studio",
+      "inLanguage": "tr-TR",
+      "publisher": {
+        "@id": "https://www.romixspace.com/#studio"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.romixspace.com/blog/mobil-uygulama-gelistirme-sureci/#page",
+      "url": "https://www.romixspace.com/blog/mobil-uygulama-gelistirme-sureci/",
+      "name": "Mobil Uygulama Geliştirme Süreci | Romix Studio",
+      "description": "Mobil uygulama geliştirme süreci adım adım: kapsam çıkarma, tasarım, geliştirme, test ve mağaza yayını. Native mi cross-platform mu, maliyeti ne belirler?",
+      "inLanguage": "tr-TR",
+      "isPartOf": {
+        "@id": "https://www.romixspace.com/#website"
+      },
+      "about": {
+        "@id": "https://www.romixspace.com/#studio"
+      },
+      "primaryImageOfPage": "https://www.romixspace.com/img/obsidian-security.jpg",
+      "breadcrumb": {
+        "@id": "https://www.romixspace.com/blog/mobil-uygulama-gelistirme-sureci/#crumbs"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.romixspace.com/blog/mobil-uygulama-gelistirme-sureci/#crumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana sayfa",
+          "item": "https://www.romixspace.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.romixspace.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Mobil uygulama geliştirme süreci: fikirden mağazaya",
+          "item": "https://www.romixspace.com/blog/mobil-uygulama-gelistirme-sureci/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.romixspace.com/blog/mobil-uygulama-gelistirme-sureci/#sss",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Mobil uygulama geliştirme ne kadar sürer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Orta ölçekli bir uygulama için 6–12 hafta gerçekçi bir aralık. Süreyi en çok ekran sayısı ve sunucu tarafı ihtiyacı belirliyor. Mağaza inceleme süreçleri buna ek olarak birkaç gün ile birkaç hafta arasında değişebiliyor ve bu süre tümüyle mağazaların kontrolünde."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Native mi cross-platform mu tercih etmeliyim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Uygulamaların büyük çoğunluğunda cross-platform doğru tercih: tek kod tabanından iki platforma çıkıldığı için süre ve maliyet düşüyor, güncellemeler tek yerden yapılıyor. Native, yoğun grafik işleyen oyunlarda, cihazın alt seviye donanımına derinlemesine giren uygulamalarda ve milisaniye hassasiyeti gereken işlerde hâlâ doğru tercih."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mağaza hesabı kimin adına açılmalı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kesinlikle sizin adınıza. Uygulamanın sahibi siz olmalısınız; geliştiricinin hesabında duran bir uygulama, ilerde ekip değiştirmek istediğinizde ciddi bir soruna dönüşüyor. Hesabın kurulumunu ve yayın sürecini geliştirici yürütebilir, ama mülkiyet sizde kalmalı."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Uygulama yayınlandıktan sonra ne yapmak gerekiyor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "İşletim sistemleri yılda bir büyük sürüm çıkarıyor ve uygulamanın bunlara uyumlu tutulması gerekiyor; mağazalar da zaman zaman yeni beyan ve kural zorunlulukları getiriyor. Bunun için bir bakım planı gerekiyor. Bakımı planlanmayan uygulamalar bir–iki yıl içinde mağazadan düşebiliyor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "İlk sürüme hangi özellikler girmeli?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Uygulamanın var olma sebebini tek cümleyle yazın; o cümleye doğrudan hizmet etmeyen her şeyi ikinci sürüme bırakın. Her fikir haklıdır ama hepsi ilk sürüme girerse uygulama hiç yayınlanmaz. İlk sürümün amacı eksiksiz olmak değil, gerçek kullanıcıyla temas etmek."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.romixspace.com/blog/mobil-uygulama-gelistirme-sureci/#yazi",
+      "headline": "Mobil uygulama geliştirme süreci: fikirden mağazaya",
+      "description": "Mobil uygulama geliştirme süreci adım adım: kapsam çıkarma, tasarım, geliştirme, test ve mağaza yayını. Native mi cross-platform mu, maliyeti ne belirler?",
+      "inLanguage": "tr-TR",
+      "datePublished": "2026-03-04",
+      "dateModified": "2026-03-04",
+      "author": {
+        "@id": "https://www.romixspace.com/#studio"
+      },
+      "publisher": {
+        "@id": "https://www.romixspace.com/#studio"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.romixspace.com/blog/mobil-uygulama-gelistirme-sureci/#page"
+      },
+      "image": "https://www.romixspace.com/img/obsidian-security.jpg",
+      "isPartOf": {
+        "@id": "https://www.romixspace.com/blog/#blog"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Belirme animasyonu yalnızca JavaScript varken uygulanır; kapalıyken
+     içerik gizlenmeden görünür kalır. -->
+<script>document.documentElement.className='js';</script>
+</head>
+<body>
+
+<a class="skip" href="#main">İçeriğe geç</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="/" aria-label="Romix Studio ana sayfa">
+      <img src="/img/logo.png" alt="" width="179" height="105" onerror="this.remove()">
+      <span>Romix Studio</span>
+    </a>
+    <nav class="topnav" aria-label="Ana menü">
+      <a href="/">İşler</a>
+      <a href="/hizmetler/">Hizmetler</a>
+      <a href="/projeler/">Projeler</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/iletisim/">İletişim</a>
+    </nav>
+  </div>
+</header>
+  <nav class="crumbs" aria-label="Kırıntı yolu">
+    <div class="wrap"><ol><li><a href="/">Ana sayfa</a></li><li><a href="/blog/">Blog</a></li><li><span aria-current="page">Mobil uygulama geliştirme süreci: fikirden mağazaya</span></li></ol></div>
+  </nav>
+
+<main id="main">
+
+  <div class="wrap hero">
+    <p class="label">Mobil</p>
+    <h1>Mobil uygulama geliştirme süreci: fikirden mağazaya</h1>
+    <p class="lead">Uygulama yaptırmayı düşünen çoğu kişi süreci “anlatırım, yaparsınız” olarak hayal ediyor. Gerçekte projenin kaderini belirleyen şey, kod yazılmadan önceki iki hafta: ekranların listelenmesi ve kapsamın netleşmesi. Bu yazı, sürecin tamamını sırasıyla anlatıyor.</p>
+  </div>
+
+  <div class="wrap post-head">
+    <p class="label">Yayın: <time datetime="2026-03-04">4 Mart 2026</time> · 9 dk okuma · Romix Studio</p>
+  </div>
+
+  <article class="rise">
+    <div class="wrap prose">
+<h2>Aşama 1 — Kapsam ve ekran listesi</h2><p>Uygulamanın ne yapacağını cümlelerle değil, ekranlarla tanımlamak gerekiyor. “Kullanıcı üye olsun, ilan versin, mesajlaşsın” cümlesi kulağa üç işmiş gibi geliyor; ekran listesine döküldüğünde on beş ekran çıkıyor: kayıt, giriş, şifre sıfırlama, profil, profil düzenleme, ilan oluşturma, fotoğraf yükleme, ilan önizleme, ilan listesi, ilan detayı, mesaj listesi, mesaj ekranı, bildirim ayarları, arama, filtre.</p><p>Bu liste hem fiyatın hem takvimin temeli. Aynı aşamada cevaplanması gereken diğer soru sunucu tarafı: uygulama verileri kendi cihazında mı tutacak, yoksa üyelik, veritabanı ve bildirim gibi bir arka uç mu gerekiyor? Arka uç ihtiyacı, projenin büyüklüğünü belirleyen tek kalem olabiliyor.</p><p>Burada verilmesi gereken en zor karar, ilk sürüme neyin girmeyeceği. Her fikir haklıdır ama hepsi ilk sürüme girerse uygulama hiç yayınlanmaz. Pratik yöntem: uygulamanın var olma sebebini tek cümleyle yazın, o cümleye hizmet etmeyen her şeyi ikinci sürüme bırakın.</p><h2>Aşama 2 — Native mi, cross-platform mu?</h2><p>Bu kararın maliyete etkisi büyük. Native geliştirme, Android ve iOS için ayrı ayrı uygulama yazmak demek: iki kod tabanı, iki bakım hattı ve her yeni özellikte iki kat iş. Cross-platform ise tek kod tabanından her iki platforma birden çıkmak.</p><p>Uygulamaların büyük çoğunluğunda cross-platform doğru tercih: süre kısalıyor, maliyet düşüyor ve güncellemeler tek yerden yapılabiliyor. Kullanıcı açısından fark, çoğu uygulamada hissedilir düzeyde değil.</p><p>Native’in hâlâ doğru olduğu yerler var ve bunları baştan bilmekte fayda var: yoğun grafik işleyen oyunlar, cihazın alt seviye donanımına derinlemesine giren uygulamalar (gelişmiş kamera işleme, özel Bluetooth cihazlarıyla düşük seviye haberleşme) ve milisaniye hassasiyeti gerektiren işler. Projeniz bu tanıma girmiyorsa cross-platform’a itiraz etmek için pratik bir sebep kalmıyor.</p><h2>Aşama 3 — Arayüz tasarımı</h2><p>Tasarım aşamasının çıktısı bir resim değil, tıklanabilir bir prototip olmalı. Yani ekranlar arasında gerçekten gezinebildiğiniz, akışı telefonunuzda deneyebildiğiniz bir sürüm.</p><p>Sebebi basit: bir akışın sorunlu olduğu, resme bakarak değil deneyerek anlaşılıyor. “Buradan geri dönünce sepet boşalıyor” gibi bir sorun prototipte on saniyede fark ediliyor, kod yazıldıktan sonra ise günler alıyor.</p><p>Bu yüzden geliştirmeye, akış onaylanmadan başlanmamalı. Onay öncesi yapılan değişiklik ücretsizdir; onay sonrası yapılan değişiklik bir maliyet kalemidir.</p><h2>Aşama 4 — Geliştirme</h2><p>Geliştirmede takip edilmesi gereken tek kural şu: sonunda tek seferde teslim edilen proje, kötü giden projedir. İki haftada bir yüklenebilir bir test sürümü almalısınız ve bunu kendi telefonunuzda çalıştırabilmelisiniz.</p><p>Bunun sebebi denetim değil, maliyet. Yanlış anlaşılmış bir gereksinim iki hafta sonra fark edildiğinde iki haftalık iş yeniden yapılır; üç ay sonra fark edildiğinde proje yeniden kurulur.</p><p>Bu aşamada arka uç ve uygulama genellikle paralel ilerliyor. Push bildirim altyapısı, çevrimdışı çalışma, kullanım analitiği ve hata takibi de burada kuruluyor — özellikle hata takibi, yayın sonrası kullanıcıların yaşadığı çökmeleri görmenin tek yolu ve sonradan eklemek zor.</p><h2>Aşama 5 — Test</h2><p>Test, geliştiricinin kendi telefonunda denemesi değil. Üç ayrı boyut var: farklı ekran boyutları (küçük telefondan tablete), farklı işletim sistemi sürümleri (eski Android sürümleri hâlâ yaygın) ve gerçek kullanım koşulları (zayıf bağlantı, düşük pil, izin reddetme).</p> <p>Uygulamanın izin isteme davranışı özellikle test edilmeli: kullanıcı konum iznini reddettiğinde uygulama çökmemeli, ne yapacağını bilmeli. Mağaza incelemelerinde en sık takılınan noktalardan biri de bu.</p><h2>Aşama 6 — Mağaza yayını</h2><p>Bu aşama çoğu kişinin beklediğinden daha uzun sürüyor ve büyük kısmı sizin kontrolünüzde değil. Gerekenler:</p><ul><li><strong>Geliştirici hesapları.</strong> Google Play tek seferlik, App Store yıllık ücretli. Hesaplar uygulamanın sahibi olarak sizin adınıza açılmalı — geliştiricinin hesabında duran uygulama, ilerde ciddi bir sorun.</li><li><strong>Mağaza görselleri ve metinler.</strong> Simge, ekran görüntüleri, kısa ve uzun açıklama. Bunlar aynı zamanda mağaza içi aramada bulunmanızı sağlayan alanlar.</li><li><strong>Gizlilik politikası ve veri formu.</strong> İki mağaza da uygulamanın hangi veriyi topladığını beyan etmenizi istiyor. Beyan ile uygulamanın gerçek davranışı uyuşmuyorsa uygulama reddediliyor.</li><li><strong>İnceleme süreci.</strong> Birkaç gün ile birkaç hafta arasında değişebiliyor. Red gelirse gerekçeye göre düzeltip yeniden gönderiliyor; ilk yayında red almak sıra dışı değil.</li></ul><h2>Maliyeti ne belirliyor?</h2><p>Fiyat sorusunun cevabı dört kalemde toplanıyor:</p><ul><li><strong>Ekran sayısı.</strong> En doğrudan etken.</li><li><strong>Sunucu tarafı ihtiyacı.</strong> Üyelik, veritabanı ve bildirim gerekiyorsa proje belirgin şekilde büyüyor.</li><li><strong>Entegrasyonlar.</strong> Ödeme, harita, kimlik doğrulama, üçüncü taraf servisler.</li><li><strong>Mağaza yayınının kapsama dahil olup olmadığı.</strong></li></ul><p>Bir de sık atlanan kalem var: <strong>yayın sonrası.</strong> Uygulama yayınlandığında iş bitmiyor. İşletim sistemleri yılda bir büyük sürüm çıkarıyor ve uygulamanın bunlara uyumlu tutulması gerekiyor; mağazalar da zaman zaman yeni beyan ve kural zorunlulukları getiriyor. Bakımı planlamayan projeler bir–iki yıl içinde mağazadan düşüyor.</p><h2>Ne kadar sürer?</h2><p>Orta ölçekli bir uygulama için 6–12 hafta gerçekçi bir aralık. Buna mağaza inceleme süresi dahil değil, çünkü o süre mağazaların kontrolünde. Süreyi en çok uzatan iki şey: ilk sürüm kapsamının şişmesi ve içerik/veri hazırlığının gecikmesi.</p>
+    </div>
+  </article>
+
+  <section id="sss" class="rise">
+    <div class="wrap">
+      <p class="label">SSS</p>
+      <h2>Sık sorulan sorular</h2>
+      <div class="faq"><details><summary>Mobil uygulama geliştirme ne kadar sürer?</summary><p>Orta ölçekli bir uygulama için 6–12 hafta gerçekçi bir aralık. Süreyi en çok ekran sayısı ve sunucu tarafı ihtiyacı belirliyor. Mağaza inceleme süreçleri buna ek olarak birkaç gün ile birkaç hafta arasında değişebiliyor ve bu süre tümüyle mağazaların kontrolünde.</p></details><details><summary>Native mi cross-platform mu tercih etmeliyim?</summary><p>Uygulamaların büyük çoğunluğunda cross-platform doğru tercih: tek kod tabanından iki platforma çıkıldığı için süre ve maliyet düşüyor, güncellemeler tek yerden yapılıyor. Native, yoğun grafik işleyen oyunlarda, cihazın alt seviye donanımına derinlemesine giren uygulamalarda ve milisaniye hassasiyeti gereken işlerde hâlâ doğru tercih.</p></details><details><summary>Mağaza hesabı kimin adına açılmalı?</summary><p>Kesinlikle sizin adınıza. Uygulamanın sahibi siz olmalısınız; geliştiricinin hesabında duran bir uygulama, ilerde ekip değiştirmek istediğinizde ciddi bir soruna dönüşüyor. Hesabın kurulumunu ve yayın sürecini geliştirici yürütebilir, ama mülkiyet sizde kalmalı.</p></details><details><summary>Uygulama yayınlandıktan sonra ne yapmak gerekiyor?</summary><p>İşletim sistemleri yılda bir büyük sürüm çıkarıyor ve uygulamanın bunlara uyumlu tutulması gerekiyor; mağazalar da zaman zaman yeni beyan ve kural zorunlulukları getiriyor. Bunun için bir bakım planı gerekiyor. Bakımı planlanmayan uygulamalar bir–iki yıl içinde mağazadan düşebiliyor.</p></details><details><summary>İlk sürüme hangi özellikler girmeli?</summary><p>Uygulamanın var olma sebebini tek cümleyle yazın; o cümleye doğrudan hizmet etmeyen her şeyi ikinci sürüme bırakın. Her fikir haklıdır ama hepsi ilk sürüme girerse uygulama hiç yayınlanmaz. İlk sürümün amacı eksiksiz olmak değil, gerçek kullanıcıyla temas etmek.</p></details></div>
+    </div>
+  </section>
+
+  <section class="rise">
+    <div class="wrap">
+      <p class="label">İlgili</p>
+      <h2>İlgili hizmet ve içerikler</h2>
+      <ul class="related"><li><a href="/mobil-uygulama-gelistirme/"><span class="related-title">Mobil uygulama geliştirme</span><span class="related-desc">Bu sürecin yürütüldüğü hizmet</span></a></li><li><a href="/projeler/yolarkadasim/"><span class="related-title">YolArkadaşım</span><span class="related-desc">Yayında olan navigasyon uygulamamız</span></a></li><li><a href="/mobil-oyun-gelistirme/"><span class="related-title">Mobil oyun geliştirme</span><span class="related-desc">Oyun projeleri için ayrı süreç</span></a></li><li><a href="/ozel-yazilim/"><span class="related-title">Özel yazılım geliştirme</span><span class="related-desc">Uygulamanın sunucu tarafı</span></a></li></ul>
+    </div>
+  </section>
+
+  <section id="iletisim" class="rise closing">
+    <div class="wrap">
+      <p class="label">İletişim</p>
+      <h2>Uygulamanızın ekran listesini birlikte çıkaralım</h2>
+      <p>Uygulamanın ne yapmasını istediğinizi yazın; ekran listesi ve gerçekçi bir fiyat aralığı çıkarıp dönelim.</p>
+      <div class="cta-row">
+        <a class="btn wa" href="https://wa.me/905466352571?text=Merhaba%2C%20Romix%20Studio%20%E2%80%94%20bir%20proje%20hakk%C4%B1nda%20konu%C5%9Fmak%20istiyorum." target="_blank" rel="noopener">WhatsApp’tan yazın</a>
+        <a class="btn ghost" href="mailto:yolarkadasim872@gmail.com?subject=Romix%20Studio%20%E2%80%94%20Mobil%20uygulama%20talebi">E-posta gönderin</a>
+      </div>
+      <p class="contact-direct">
+        <a href="tel:+905466352571">0546 635 25 71</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:yolarkadasim872@gmail.com">yolarkadasim872@gmail.com</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-cols">
+      <div class="foot-col">
+        <p class="label">Hizmetler</p>
+        <ul>
+          <li><a href="/web-tasarim/">Web tasarım</a></li>
+          <li><a href="/web-tasarim/kurumsal-web-tasarim/">Kurumsal web tasarım</a></li>
+          <li><a href="/web-tasarim/e-ticaret-web-tasarim/">E-ticaret sitesi</a></li>
+          <li><a href="/web-tasarim/yapay-zeka-ajanli-web-sitesi/">Yapay zekâ ajanlı site</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <p class="label">Yazılım</p>
+        <ul>
+          <li><a href="/mobil-uygulama-gelistirme/">Mobil uygulama geliştirme</a></li>
+          <li><a href="/mobil-oyun-gelistirme/">Mobil oyun geliştirme</a></li>
+          <li><a href="/ozel-yazilim/">Özel yazılım geliştirme</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <p class="label">Otomasyon</p>
+        <ul>
+          <li><a href="/otomasyon/">Otomasyon çözümleri</a></li>
+          <li><a href="/otomasyon/isletme-otomasyonu/">İşletme otomasyonu</a></li>
+          <li><a href="/otomasyon/yapay-zeka-otomasyonu/">Yapay zekâ otomasyonu</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <p class="label">Stüdyo</p>
+        <ul>
+          <li><a href="/hakkimizda/">Hakkımızda</a></li>
+          <li><a href="/projeler/">Projeler</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/iletisim/">İletişim</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-in">
+      <span class="label">© <span id="yil">2026</span> Romix Studio</span>
+      <nav aria-label="Alt menü">
+        <a href="https://wa.me/905466352571" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="tel:+905466352571">0546 635 25 71</a>
+        <a href="mailto:yolarkadasim872@gmail.com">E-posta</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/page.js" defer></script>
+
+</body>
+</html>

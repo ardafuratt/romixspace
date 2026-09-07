@@ -493,6 +493,50 @@ body.view-full .gl { opacity: 0; pointer-events: none; filter: blur(1.2rem); }
 .project-link:hover { opacity: 0.75; }
 .project-link[hidden] { display: none; }
 
+/* Projenin kendi sayfasına giden ikinci, daha sakin çıkış */
+.project-more {
+  display: block;
+  margin-top: 1.8rem;
+  opacity: 0.6;
+  text-decoration: none;
+  transition: opacity 0.3s var(--ease);
+}
+.project-more:hover { opacity: 1; }
+.project-more[hidden] { display: none; }
+
+/* Profil panelindeki site menüsü — ana sayfadan iç sayfalara giden yol */
+.panel-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem 2rem;
+  margin-top: 3rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.panel-nav a {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity 0.3s var(--ease);
+}
+
+.panel-nav a:hover { opacity: 0.6; }
+
+/* Marka başlığı h1 oldu; görünüm değişmesin diye başlık varsayılanları
+   sıfırlanıyor. Yerleşim eskisiyle birebir aynı. */
+.brand-h1 {
+  margin: 0;
+  font: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  pointer-events: none;
+}
+
 /* İletişim formu */
 .contact-form {
   display: flex;

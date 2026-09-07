@@ -1,36 +1,87 @@
 # Romix Studio — portfolyo sitesi
 
-Tek sayfalık, siyah zeminli, yatay sürüklenen proje şeridi olan portfolyo sitesi.
-Kartlar Three.js ile WebGL'de çiziliyor, geçişleri GSAP sürüyor; ikisi de CDN'den
-geliyor, derleme adımı yok — dosyaları bir sunucuya atman yeterli.
+Siyah zeminli, yatay sürüklenen proje şeridi olan bir ana sayfa ve onun etrafında
+kurulmuş metin ağırlıklı içerik sayfaları. Ana sayfadaki kartlar Three.js ile
+WebGL'de çiziliyor, geçişleri GSAP sürüyor; ikisi de CDN'den geliyor.
+
+İçerik sayfaları (hizmetler, projeler, blog) `build/` içindeki üreticiden
+çıkıyor. Çıktı depoya işlendiği için yayın hâlâ tamamen statik — Vercel'de
+derleme adımı çalışmıyor.
 
 ```
 romix-studio/
-├─ index.html          → ana sayfa (WebGL şerit)
-├─ hizmetler.html      → SEO sayfası — metinler doğrudan bu dosyanın içinde
-├─ robots.txt          → arama motoru yönergesi
-├─ sitemap.xml         → site haritası
-├─ css/style.css       → ana sayfanın tasarımı
-├─ css/page.css        → hizmetler sayfasının tasarımı
-├─ js/content.js       → ★ YAZILAR VE PROJELER — düzenleyeceğin dosya bu
-├─ js/app.js           → ★ Three.js sahnesi, GLSL shader'lar, tüm etkileşim
-└─ img/                → proje görsellerini buraya at
+├─ index.html                → ana sayfa (WebGL şerit) — elle bakımda
+├─ vercel.json               → yönlendirmeler, önbellek ve güvenlik başlıkları
+├─ robots.txt                → ÜRETİLİYOR — build/build.js yazıyor
+├─ sitemap.xml               → ÜRETİLİYOR — build/build.js yazıyor
+├─ 404.html                  → ÜRETİLİYOR
+│
+├─ hizmetler/                → ÜRETİLİYOR — hizmet merkezi ve fiyatlar
+├─ web-tasarim/              → ÜRETİLİYOR — 4 sayfa
+├─ mobil-uygulama-gelistirme/, mobil-oyun-gelistirme/, ozel-yazilim/
+├─ otomasyon/                → ÜRETİLİYOR — 3 sayfa
+├─ projeler/                 → ÜRETİLİYOR — indeks + 10 proje sayfası
+├─ blog/                     → ÜRETİLİYOR — indeks + yazılar
+├─ hakkimizda/, iletisim/    → ÜRETİLİYOR
+│
+├─ build/
+│  ├─ build.js               → ★ üreticiyi çalıştırır
+│  ├─ check.js               → ★ yayın öncesi denetim
+│  ├─ serve.js               → yerel önizleme sunucusu
+│  ├─ site.js                → alan adı, iletişim, fiyatlar — tek kaynak
+│  ├─ template.js            → head, menü, alt bilgi, JSON-LD şablonu
+│  ├─ keyword-map.md         → ÜRETİLİYOR — anahtar kelime → URL eşlemesi
+│  └─ content/
+│     ├─ services.js         → ★ HİZMET SAYFALARININ METİNLERİ
+│     ├─ projects.js         → ★ PROJE SAYFALARININ METİNLERİ
+│     ├─ posts.js            → ★ BLOG YAZILARI
+│     └─ pages.js            → hizmet merkezi, indeksler, hakkımızda, iletişim
+│
+├─ css/style.css             → ana sayfanın tasarımı
+├─ css/page.css              → içerik sayfalarının tasarımı
+├─ js/content.js             → ★ ANA SAYFADAKİ YAZILAR VE PROJELER
+├─ js/app.js                 → ★ Three.js sahnesi, GLSL shader'lar, etkileşim
+├─ js/page.js                → içerik sayfalarının küçük betiği
+└─ img/                      → proje görsellerini buraya at
 ```
 
 ## Siteyi bilgisayarda açmak
 
-`index.html` dosyasına çift tıklaman yeterli. Yerel sunucuyla açmak istersen:
-
 ```
-cd romix-studio
-python -m http.server 8000
+node build/serve.js
 ```
 
-Sonra tarayıcıda `http://localhost:8000` adresine git.
+Sonra tarayıcıda `http://localhost:4321` adresine git. Bu sunucu Vercel'in
+davranışını taklit ediyor: dizinler `index.html` ile karşılanıyor, sondaki eğik
+çizgi zorunlu, bulunamayan adresler `404.html`e düşüyor ve `vercel.json`daki
+kalıcı yönlendirmeler uygulanıyor. `index.html`e çift tıklamak da çalışır ama
+kök yollu bağlantılar (`/hizmetler/`) o şekilde açılmaz.
 
-## İçeriği değiştirmek
+## İçerik sayfalarını değiştirmek
 
-Her şey `js/content.js` içinde:
+Metinler `build/content/` altındaki dosyalarda. Düzenledikten sonra:
+
+```
+node build/build.js     # sayfaları, sitemap'i ve robots.txt'i yeniden yazar
+node build/check.js     # kırık bağlantı, canonical, başlık, alt metin denetimi
+```
+
+`check.js` hata verirse yayınlama. Kontrol ettikleri: her iç bağlantının
+karşılığı var mı, canonical www'lu ve doğru mu, başlık/açıklama benzersiz mi,
+sayfa başına tam bir `h1` var mı, her `img`'de `alt` var mı, JSON-LD geçerli mi,
+sitemap'teki her adres bir dosyaya karşılık geliyor mu.
+
+**Yeni blog yazısı eklemek:** `build/content/posts.js` içindeki diziye bir kayıt
+ekle, `build.js` çalıştır. Sayfa, blog indeksindeki kart, sitemap kaydı ve
+BlogPosting verisi kendiliğinden oluşur.
+
+**Yeni hizmet sayfası:** `build/content/services.js` içindeki diziye ekle. Her
+sayfanın `keywords.primary` alanı benzersiz olmalı — aynı kelimeyi iki sayfaya
+verirsen sayfalar birbiriyle yarışır.
+
+## Ana sayfayı değiştirmek
+
+Ana sayfadaki her şey `js/content.js` içinde:
 
 - **`brand`** — sol üstteki stüdyo adı.
 - **`email` ve `social`** — Profil panelindeki linkler. Kullanmadığın satırı sil.
@@ -57,17 +108,30 @@ Kartlar büyük göründüğü için görselleri en az 1600px genişlikte tut.
 ## İletişim formu
 
 Şu an form, ziyaretçinin e-posta programını açıp sana mail atıyor. Gerçek bir
-form servisine bağlamak istersen `js/main.js` içindeki **"Form servisi
+form servisine bağlamak istersen `js/app.js` içindeki **"Form servisi
 kullanacaksan burayı aç"** yorumunu bul, `ENDPOINT` yerine servisinin adresini
 yaz (örneğin Formspree'den aldığın adres) ve alttaki `mailto` satırlarını sil.
 
 ## Yayına almak
 
-Sunucu tarafı kod olmadığı için herhangi bir statik hosting çalışır:
+Site Vercel'de, `https://www.romixspace.com` alan adında yayında. Sunucu tarafı
+kod yok; depoya işlenen dosyalar olduğu gibi sunuluyor, derleme adımı
+çalışmıyor. Yayına almadan önce `node build/build.js && node build/check.js`
+çalıştır ve üretilen dosyaları da işle.
 
-- **Netlify / Vercel** — klasörü sürükleyip bırakman yeterli.
-- **GitHub Pages** — depoya yükle, Settings → Pages'ten aç.
-- **Normal hosting (cPanel)** — dosyaları `public_html` içine at.
+`vercel.json` şunları yapıyor:
+
+- **`trailingSlash: true`** — eğik çizgisiz adresler eğik çizgiliye 308'leniyor,
+  böylece aynı içerik iki adreste görünmüyor.
+- **Kalıcı yönlendirmeler** — `/hizmetler.html` → `/hizmetler/`,
+  `/index.html` → `/`.
+- **Önbellek başlıkları** — görsel ve videolar 30 gün, CSS/JS 1 saat.
+- **Güvenlik başlıkları** — `X-Content-Type-Options`, `Referrer-Policy`,
+  `X-Frame-Options`.
+
+Başka bir statik hostinge taşınırsa bu davranışların elle kurulması gerekiyor;
+özellikle eğik çizgi kuralı ve `/hizmetler.html` yönlendirmesi atlanırsa
+yinelenen içerik ve kırık bağlantı oluşur.
 
 ## Efektler nasıl çalışıyor
 
@@ -111,40 +175,66 @@ ayrımı) sayıları.
 WebGL ya da CDN'ler yüklenmezse site `body.no-gl` moduna düşüp kartları düz CSS
 ile gösteriyor.
 
-## SEO sayfası (hizmetler.html)
+## SEO mimarisi
 
-Ana sayfa WebGL üzerine kurulu olduğu için arama motorlarına verecek metni sınırlı.
-`hizmetler.html` bu boşluğu kapatıyor: normal kaydırmalı, metin ağırlıklı, aynı
-tasarım diliyle kurulmuş bir hizmet sayfası. Üst menüdeki **Hizmetler** bağlantısı
-buraya gidiyor.
+Ana sayfa WebGL üzerine kurulu olduğu için arama motorlarına verebileceği metin
+sınırlı. Bu yüzden arama görünürlüğü ana sayfaya değil, etrafındaki içerik
+sayfalarına yaslanıyor. Her hizmetin kendi sayfası var; her sayfanın tek bir
+birincil anahtar kelimesi var ve aynı kelime iki sayfaya verilmiyor.
 
-**Hedeflenen aramalar.** Türkiye'de bu alandaki aramaların büyük kısmı fiyat ve süre
-sorularıyla geliyor ("web sitesi yaptırma fiyatları", "mobil uygulama ne kadar",
-"iş süreçleri otomasyonu"). Sayfa bu soruları başlık düzeyinde karşılıyor: her
-hizmet için ayrı H2, süre tablosu, fiyatın neye göre belirlendiğini anlatan bölüm ve
-on soruluk SSS.
+Anahtar kelime → URL eşlemesinin tamamı `build/keyword-map.md` dosyasında
+(üretiliyor, elle düzenleme).
 
-**Sayfada ne var:** tek H1, atlamasız H2/H3 hiyerarşisi, 63 karakterlik title,
-157 karakterlik açıklama, canonical, Open Graph ve Twitter kartları, ProfessionalService
-+ OfferCatalog + WebPage + BreadcrumbList + FAQPage yapılandırılmış verisi, görsellerde
-açıklayıcı alt metinleri, `loading="lazy"` ve CLS'i önleyen width/height değerleri.
+**Alan adı.** Site `https://www.romixspace.com` üzerinden yayında; www'suz adres
+buraya 308 ile yönleniyor. Bu yüzden bütün canonical, og:url, sitemap ve JSON-LD
+adresleri **www'lu**. Alan adı tek yerden yönetiliyor: `build/site.js` içindeki
+`ORIGIN`. Değiştirirsen `node build/build.js` çalıştır, sonra `index.html`
+içindeki mutlak adresleri elle güncelle (ana sayfa üreticinin dışında).
 
-> **Not:** Google, FAQ zengin sonuçlarını Mayıs 2026'da kaldırdı. FAQPage verisi
-> sayfada duruyor çünkü hâlâ konuyu anlamaya yarıyor, ama artık arama sonucunda
-> açılır soru listesi olarak görünmeyecek. SSS bölümünü ziyaretçi için tuttuk.
+**Her sayfada standart olan:** benzersiz title ve açıklama, canonical, robots,
+Open Graph ve Twitter kartları, kırıntı yolu, tek `h1`, atlamasız `h2`/`h3`
+hiyerarşisi, Organization + WebSite + WebPage + BreadcrumbList JSON-LD,
+görsellerde açıklayıcı alt metni ve CLS'i önleyen width/height, "İçeriğe geç"
+bağlantısı ve görünür odak halkası.
 
-### Yayına almadan önce mutlaka yap
+**URL yapısı.** Bütün içerik sayfaları eğik çizgiyle biten dizin adreslerinde
+(`/web-tasarim/kurumsal-web-tasarim/`). `vercel.json` içindeki
+`trailingSlash: true` eğik çizgisiz istekleri 308 ile buraya yönlendiriyor,
+böylece aynı içerik iki adreste görünmüyor. Eski `hizmetler.html` adresi 301 ile
+`/hizmetler/` adresine taşındı.
 
-1. ~~**Alan adını değiştir.**~~ Yapıldı — tüm dosyalarda `https://romixspace.com` kullanılıyor.
-2. **Google Search Console'a ekle** ve `sitemap.xml` adresini gönder.
-3. **Google İşletme Profili** aç — yerel aramalarda görünürlük için sayfadaki
-   şehir bilgileriyle aynı olmasına dikkat et.
-4. **Fiyat bilgisi.** Sayfada süre tablosu var ama rakam yok; fiyat aralıklarını
-   yazmak istersen "Bir proje ne kadar sürer" bölümüne ekleyebilirsin. Arama
-   hacminin büyük kısmı fiyat sorgularında olduğu için bu, sıralamayı belirgin
-   şekilde etkiler.
-5. **İngilizce sürüm.** Şu an sayfa yalnızca Türkçe. İngilizce bir kopya
-   (`services.html`) açılırsa iki sayfaya karşılıklı `hreflang` etiketi eklenmeli.
+**Ana sayfadaki metin katmanı.** `index.html` içindeki `#seo` bölümü, WebGL
+tuvalinin metin karşılığı: aynı projeler, aynı bağlantılar, düz metin olarak.
+İki önemli nokta:
+
+1. **Statik.** JavaScript üretmiyor; sayfayla birlikte geliyor. (Eskiden
+   `js/app.js` içindeki `buildSeo()` üretiyordu, o kaldırıldı.)
+2. **JavaScript kapalıyken görünür.** `<noscript>` içindeki stil onu normal akışa
+   döndürüyor. Tuval çizilmiyorsa metin görünüyor — yani gizli metin değil,
+   tuvalin erişilebilir alternatifi.
+
+Bu katmanı büyütme. Ekleyeceğin her SEO metni içerik sayfalarına gitmeli.
+
+> **Not:** Google, FAQ zengin sonuçlarını gov/health dışındaki sitelerde
+> göstermiyor. FAQPage verisi sayfalarda duruyor çünkü hâlâ konuyu anlamaya
+> yarıyor ve görünen bir SSS bölümünün birebir karşılığı; ama arama sonucunda
+> açılır soru listesi olarak görünmeyecek.
+
+### Yayına almadan önce
+
+1. `node build/build.js && node build/check.js` — denetim temiz olmalı.
+2. **Google Search Console.** Mülkü www'lu adresle doğrula ve `sitemap.xml`
+   adresini gönder. Eski www'suz mülk varsa onu da tut; yönlendirme oradan
+   buraya taşınmayı gösterir.
+3. **Analitik.** Şu an sitede analitik yok. Google Analytics kurulacaksa ölçüm
+   kimliği (G-XXXXXXXXXX) gerekiyor; uydurma kimlik yazma.
+4. **Google İşletme Profili.** Fiziksel ofis yok, bu yüzden adres girme. Hizmet
+   bölgesi olarak Türkiye tanımlanabilir.
+5. **İngilizce sürüm.** Ana sayfadaki TR/EN düğmesi yalnızca görünen arayüzü
+   çeviriyor, ayrı bir adres üretmiyor — dolayısıyla İngilizce içerik
+   indekslenmiyor. İngilizce sayfalar istenirse gerçek metinle yazılmalı ve
+   karşılıklı hreflang kurulmalı; makine çevirisiyle sayfa çoğaltmak siteye
+   zarar verir.
 
 ## Notlar
 
