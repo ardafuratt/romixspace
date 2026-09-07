@@ -202,6 +202,15 @@
 <!-- Belirme animasyonu yalnızca JavaScript varken uygulanır; kapalıyken
      içerik gizlenmeden görünür kalır. -->
 <script>document.documentElement.className='js';</script>
+
+<!-- Google Analytics (GA4) — async, sayfa çizimini geciktirmiyor. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-069419XKSR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-069419XKSR');
+</script>
 </head>
 <body>
 

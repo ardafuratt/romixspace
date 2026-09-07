@@ -5,7 +5,7 @@
    üretiliyor. Ana sayfa kendi WebGL yapısını koruduğu için ayrı tutuluyor.
    ========================================================================== */
 
-const { ORIGIN, CONTACT, SAME_AS, NAV, OG_IMAGE, GOOGLE_SITE_VERIFICATION, wa } = require('./site');
+const { ORIGIN, CONTACT, SAME_AS, NAV, OG_IMAGE, GOOGLE_SITE_VERIFICATION, GA_MEASUREMENT_ID, wa } = require('./site');
 
 /* --- Kaçış ---------------------------------------------------------------- */
 
@@ -265,6 +265,15 @@ function head(page) {
 '<!-- Belirme animasyonu yalnızca JavaScript varken uygulanır; kapalıyken\n' +
 '     içerik gizlenmeden görünür kalır. -->\n' +
 '<script>document.documentElement.className=\'js\';</script>\n' +
+'\n' +
+'<!-- Google Analytics (GA4) — async, sayfa çizimini geciktirmiyor. -->\n' +
+'<script async src="https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID + '"></script>\n' +
+'<script>\n' +
+'  window.dataLayer = window.dataLayer || [];\n' +
+'  function gtag(){dataLayer.push(arguments);}\n' +
+'  gtag(\'js\', new Date());\n' +
+'  gtag(\'config\', \'' + GA_MEASUREMENT_ID + '\');\n' +
+'</script>\n' +
 '</head>\n';
 }
 

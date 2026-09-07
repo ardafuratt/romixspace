@@ -15,6 +15,9 @@ const ORIGIN = 'https://www.romixspace.com';
    eklendi; bu etiket her sayfada durabilir, tek bir yerde tutulması yeterli. */
 const GOOGLE_SITE_VERIFICATION = 'h_aI9H-UP1krvOFIwYOFU1B_mkMduNo80O0kUVKPEeU';
 
+/* Google Analytics 4 ölçüm kimliği. */
+const GA_MEASUREMENT_ID = 'G-069419XKSR';
+
 const CONTACT = {
   email: 'yolarkadasim872@gmail.com',
   phone: '+905466352571',
@@ -56,4 +59,4 @@ function wa(message) {
   return CONTACT.whatsapp + '?text=' + encodeURIComponent(message);
 }
 
-module.exports = { ORIGIN, CONTACT, SAME_AS, NAV, PRICES, OG_IMAGE, GOOGLE_SITE_VERIFICATION, wa };
+module.exports = { ORIGIN, CONTACT, SAME_AS, NAV, PRICES, OG_IMAGE, GOOGLE_SITE_VERIFICATION, GA_MEASUREMENT_ID, wa };
