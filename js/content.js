@@ -12,10 +12,9 @@ const SITE = {
      Kullanmadığın satırı sil. Linkleri kendi hesaplarınla değiştir.          */
   email: 'yolarkadasim872@gmail.com',
   social: [
-    { label: 'Google Play', url: 'https://play.google.com/store/apps/dev?id=romixstudio' },
-    { label: 'Instagram',   url: 'https://instagram.com/romixstudio' },
-    { label: 'LinkedIn',    url: 'https://linkedin.com/company/romixstudio' },
-    { label: 'GitHub',      url: 'https://github.com/romixstudio' }
+    { label: 'Instagram', url: 'https://www.instagram.com/romix_studio/' },
+    { label: 'LinkedIn',  url: 'https://www.linkedin.com/in/arda-furat-a9b642388/' },
+    { label: 'GitHub',    url: 'https://github.com/ardafuratt' }
   ],
 
   /* --- Metinler (TR / EN) ------------------------------------------------ */

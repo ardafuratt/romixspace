@@ -28,10 +28,9 @@ const CONTACT = {
 
 /* Sosyal hesaplar — js/content.js ile aynı kaynak */
 const SAME_AS = [
-  'https://play.google.com/store/apps/dev?id=romixstudio',
-  'https://instagram.com/romixstudio',
-  'https://linkedin.com/company/romixstudio',
-  'https://github.com/romixstudio'
+  'https://www.instagram.com/romix_studio/',
+  'https://www.linkedin.com/in/arda-furat-a9b642388/',
+  'https://github.com/ardafuratt'
 ];
 
 /* Üst menü — her sayfada aynı */
