@@ -396,6 +396,7 @@ function footer() {
 '        <a href="' + CONTACT.whatsapp + '" target="_blank" rel="noopener">WhatsApp</a>\n' +
 '        <a href="tel:' + CONTACT.phone + '">' + CONTACT.phoneText + '</a>\n' +
 '        <a href="mailto:' + CONTACT.email + '">E-posta</a>\n' +
+'        <a href="/gizlilik-politikasi/">Gizlilik Politikası</a>\n' +
 '      </nav>\n' +
 '    </div>\n' +
 '  </div>\n' +

@@ -587,6 +587,124 @@ pages.push({
 
 
 /* ==========================================================================
+   /gizlilik-politikasi/
+
+   UYARI: Bu metin taslaktır. Yalnızca kullanıcının onayladığı gerçek bilgilere
+   dayanıyor (veri sorumlusu, toplanan veri türleri, kullanılan servisler).
+   Uydurulmayan alanlar: VKN/MERSİS, işyeri adresi, VERBİS kayıt durumu, kesin
+   saklama süreleri — bunlar hakkında elimizde doğrulanmış bilgi olmadığı için
+   metne yazılmadı. Yayından önce bir hukuk danışmanına gösterilmesi önerilir.
+   ========================================================================== */
+
+pages.push({
+  path: '/gizlilik-politikasi/',
+  crumbs: [HOME, { name: 'Gizlilik Politikası', path: '/gizlilik-politikasi/' }],
+  keywords: {
+    primary: 'Romix Studio gizlilik politikası',
+    secondary: ['KVKK aydınlatma metni', 'kişisel verilerin korunması'],
+    intent: 'Bilgilendirici — hukuki/güven sayfası'
+  },
+  title: 'Gizlilik Politikası ve KVKK Aydınlatma Metni | Romix Studio',
+  description: 'Romix Studio’nun iletişim formu, Google Analytics ve site altyapısı aracılığıyla işlediği kişisel veriler, işlenme amaçları ve KVKK kapsamındaki haklarınız.',
+  ogImageAlt: 'Romix Studio gizlilik politikası',
+  label: 'Yasal',
+  h1: 'Gizlilik Politikası ve KVKK Aydınlatma Metni',
+  lead: 'Bu sayfa, romixspace.com’u ziyaret ettiğinizde ya da bizimle iletişime geçtiğinizde hangi kişisel verilerin, hangi amaçla ve nasıl işlendiğini anlatıyor. Son güncelleme: 7 Eylül 2026.',
+  cta: false,
+  sections: [
+    T.section({
+      label: '01 — Veri sorumlusu',
+      h2: 'Veri sorumlusu kim?',
+      body:
+        '<p>romixspace.com (“Romix Studio”), Arda Furat tarafından bireysel olarak işletilen bir dijital tasarım ve yazılım stüdyosudur. 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) kapsamında bu site üzerinden toplanan kişisel veriler bakımından veri sorumlusu Arda Furat’tır.</p>' +
+        '<p>Bu politika hakkındaki sorularınız için: <a href="mailto:' + CONTACT.email + '">' + CONTACT.email + '</a></p>'
+    }),
+
+    T.section({
+      label: '02 — Toplanan veriler',
+      h2: 'Hangi kişisel veriler, nasıl toplanıyor?',
+      body:
+        '<p>Bu sitede aşağıdaki kişisel veriler, belirtilen yollarla toplanıyor:</p>' +
+        T.ticks([
+          '<strong>İletişim formu, e-posta ve WhatsApp.</strong> Bizimle iletişime geçtiğinizde paylaştığınız ad, e-posta adresi, telefon numarası ve mesaj içeriği.',
+          '<strong>Google Analytics (GA4).</strong> Siteyi ziyaret ettiğinizde IP adresinizden türetilen yaklaşık konum, kullandığınız cihaz ve tarayıcı bilgisi, ziyaret ettiğiniz sayfalar ve sitede gezinme davranışınız. Bu veriler Google LLC tarafından işlenir.',
+          '<strong>Yazı tipi ve betik dosyaları.</strong> Sitenin görünümü ve etkileşimli öğeleri için Google Fonts ve cdnjs (Cloudflare) üzerinden dosya indiriliyor; bu sırada IP adresiniz bu servis sağlayıcılara ulaşıyor.',
+          '<strong>Barındırma sunucusu günlükleri.</strong> Sitenin barındırıldığı Vercel Inc. altyapısı, standart sunucu erişim günlüklerinde erişim zamanını, IP adresini ve tarayıcı bilgisini tutuyor.'
+        ]) +
+        '<p>Sitede üyelik, kullanıcı girişi ya da ödeme sistemi bulunmuyor; bu nedenle şifre, ödeme ya da kimlik belgesi bilgisi toplanmıyor.</p>'
+    }),
+
+    T.section({
+      label: '03 — İşlenme amaçları',
+      h2: 'Verileriniz hangi amaçla işleniyor?',
+      body: T.ticks([
+        'İletişime geçtiğiniz talebi değerlendirmek ve size dönüş yapmak',
+        'Sitenin nasıl kullanıldığını anlayarak içerik ve kullanılabilirliği geliştirmek',
+        'Sitenin teknik olarak çalışmasını ve güvenliğini sağlamak',
+        'Yasal yükümlülüklerin yerine getirilmesi (yetkili bir merciin talep etmesi hâlinde bilgi verilmesi)'
+      ])
+    }),
+
+    T.section({
+      label: '04 — Aktarım',
+      h2: 'Verileriniz üçüncü taraflarla paylaşılıyor mu?',
+      body:
+        '<p>Yukarıda sayılan hizmet sağlayıcılar (Google, Cloudflare, Vercel Inc., WhatsApp/Meta) kendi altyapılarını kullandığı için verileriniz bu sağlayıcıların sunucuları üzerinden, kısmen Türkiye dışında işlenebiliyor. Bu paylaşım yalnızca yukarıda sayılan amaçların gerçekleştirilmesiyle sınırlı; verileriniz satılmıyor ve pazarlama amacıyla başka bir üçüncü tarafla paylaşılmıyor.</p>'
+    }),
+
+    T.section({
+      label: '05 — Çerezler',
+      h2: 'Site çerez kullanıyor mu?',
+      body:
+        '<p>Site, Google Analytics tarafından yerleştirilen ölçüm çerezlerini kullanıyor. Bu çerezler ziyaretçiyi tekilleştirmek ve site kullanımını ölçmek için kullanılıyor; reklam amaçlı üçüncü taraf çerezi kullanılmıyor. Çerezleri tarayıcınızın ayarlarından tamamen engelleyebilir ya da silebilirsiniz; bu durumda sitenin temel işlevleri etkilenmez, yalnızca ziyaret ölçümü yapılamaz.</p>'
+    }),
+
+    T.section({
+      label: '06 — Saklama süresi',
+      h2: 'Verileriniz ne kadar süreyle saklanıyor?',
+      body:
+        '<p>İletişim yoluyla paylaştığınız bilgiler, talebinizin değerlendirilmesi için gerekli süre boyunca ve sonrasında olası uyuşmazlıklara karşı makul bir süreyle sınırlı olarak saklanıyor. Google Analytics verileri, Google’ın kendi varsayılan saklama ayarlarına tabi.</p>'
+    }),
+
+    T.section({
+      label: '07 — Haklarınız',
+      h2: 'KVKK kapsamındaki haklarınız',
+      body:
+        '<p>KVKK’nın 11. maddesi uyarınca şu haklara sahipsiniz:</p>' +
+        T.ticks([
+          'Kişisel verilerinizin işlenip işlenmediğini öğrenme',
+          'İşlenmişse buna ilişkin bilgi talep etme',
+          'İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme',
+          'Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme',
+          'Eksik veya yanlış işlenmişse düzeltilmesini isteme',
+          'KVKK’da öngörülen şartlar çerçevesinde silinmesini veya yok edilmesini isteme',
+          'İşlenen verilerin münhasıran otomatik sistemlerle analiz edilmesi yoluyla aleyhinize bir sonuç doğması hâlinde buna itiraz etme',
+          'Kanuna aykırı işleme nedeniyle zarara uğramanız hâlinde zararın giderilmesini talep etme'
+        ])
+    }),
+
+    T.section({
+      label: '08 — Başvuru',
+      h2: 'Haklarınızı nasıl kullanabilirsiniz?',
+      body:
+        '<p>Yukarıdaki haklarınızı kullanmak için taleplerinizi <a href="mailto:' + CONTACT.email + '">' + CONTACT.email + '</a> adresine e-posta yoluyla iletebilirsiniz. Başvurunuzda kimliğinizi doğrulayabilmemiz ve talebinizi doğru değerlendirebilmemiz için ad-soyadınızı ve talebinizin konusunu açıkça belirtmenizi rica ederiz. Talepler, KVKK’da öngörülen süreler içinde yanıtlanır.</p>'
+    }),
+
+    T.section({
+      label: '09 — Güncellemeler',
+      h2: 'Bu politika değişir mi?',
+      body:
+        '<p>Bu politika, sitede sunulan hizmetler ya da kullanılan araçlar değiştikçe güncellenebilir. Güncel sürüm her zaman bu sayfada yer alır.</p>'
+    })
+  ],
+  related: [
+    { title: 'İletişim', desc: 'Sorularınız için doğrudan ulaşın', path: '/iletisim/' },
+    { title: 'Hakkımızda', desc: 'Romix Studio kim, nasıl çalışıyor', path: '/hakkimizda/' }
+  ]
+});
+
+
+/* ==========================================================================
    404
    ========================================================================== */
 

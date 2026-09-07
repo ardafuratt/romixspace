@@ -34,3 +34,4 @@ verilmiyor; bu, sayfaların birbiriyle yarışmasını (yamyamlık) önlüyor.
 | `/blog/isletme-otomasyonu-nedir/` | **işletme otomasyonu nedir** | iş süreçleri otomasyonu nedir, hangi süreçler otomatikleştirilir, KOBİ otomasyon | Bilgilendirici — otomasyon kararı öncesi araştırma |
 | `/hakkimizda/` | **Romix Studio hakkında** | dijital tasarım stüdyosu, yazılım stüdyosu | Marka / güven doğrulama |
 | `/iletisim/` | **Romix Studio iletişim** | teklif alma, web tasarım teklif | İşlemsel — iletişime geçmek isteyen ziyaretçi |
+| `/gizlilik-politikasi/` | **Romix Studio gizlilik politikası** | KVKK aydınlatma metni, kişisel verilerin korunması | Bilgilendirici — hukuki/güven sayfası |
