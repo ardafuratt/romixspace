@@ -32,6 +32,7 @@ verilmiyor; bu, sayfaların birbiriyle yarışmasını (yamyamlık) önlüyor.
 | `/blog/kurumsal-web-sitesi-nasil-olmali/` | **kurumsal web sitesi nasıl olmalı** | kurumsal web sitesinde neler olmalı, kurumsal site içeriği, kurumsal web sitesi özellikleri | Bilgilendirici — kurumsal site yaptırmadan önce araştırma |
 | `/blog/mobil-uygulama-gelistirme-sureci/` | **mobil uygulama geliştirme süreci** | mobil uygulama nasıl yapılır, uygulama geliştirme aşamaları, native mi cross platform mu | Bilgilendirici — uygulama yaptırmadan önce süreci anlamak |
 | `/blog/isletme-otomasyonu-nedir/` | **işletme otomasyonu nedir** | iş süreçleri otomasyonu nedir, hangi süreçler otomatikleştirilir, KOBİ otomasyon | Bilgilendirici — otomasyon kararı öncesi araştırma |
+| `/blog/yapay-zeka-otomasyonu-nedir/` | **yapay zeka otomasyonu nedir** | yapay zeka otomasyonu nasıl kullanılır, AI otomasyon nedir, işletmelerde yapay zeka kullanımı | Bilgilendirici — yapay zekâ otomasyonuna geçiş öncesi araştırma |
 | `/hakkimizda/` | **Romix Studio hakkında** | dijital tasarım stüdyosu, yazılım stüdyosu | Marka / güven doğrulama |
 | `/iletisim/` | **Romix Studio iletişim** | teklif alma, web tasarım teklif | İşlemsel — iletişime geçmek isteyen ziyaretçi |
 | `/gizlilik-politikasi/` | **Romix Studio gizlilik politikası** | KVKK aydınlatma metni, kişisel verilerin korunması | Bilgilendirici — hukuki/güven sayfası |

@@ -6,6 +6,8 @@
    eklemek yeterli.
    ========================================================================== */
 
+const T = require('../template');
+
 module.exports = [
 
   /* ======================================================================== */
@@ -270,5 +272,95 @@ module.exports = [
     closingH2: 'Süreçlerinizi birlikte çıkaralım',
     closingP: 'Bugün en çok vakit kaybettiren süreci anlatın; yazılıma taşınmaya değer olup olmadığını dürüstçe söyleyelim. Değmiyorsa bunu da söyleriz.',
     closingSubject: 'Otomasyon talebi'
+  },
+
+
+  /* ======================================================================== */
+  {
+    slug: 'yapay-zeka-otomasyonu-nedir',
+    category: 'Otomasyon',
+    date: '2026-09-13',
+    dateText: '13 Eylül 2026',
+    readTime: '8 dk okuma',
+    keywords: {
+      primary: 'yapay zeka otomasyonu nedir',
+      secondary: ['yapay zeka otomasyonu nasıl kullanılır', 'AI otomasyon nedir', 'işletmelerde yapay zeka kullanımı'],
+      intent: 'Bilgilendirici — yapay zekâ otomasyonuna geçiş öncesi araştırma'
+    },
+    title: 'Yapay Zekâ Otomasyonu Nedir? | Romix Studio',
+    description: 'Yapay zekâ otomasyonu nedir, klasik RPA’dan farkı ne? Müşteri desteğinden finansa kullanım alanları ve işletmeler için 4 adımlı başlama rehberi.',
+    h1: 'Yapay zekâ otomasyonu nedir, işletmelerde nasıl kullanılır?',
+    excerpt: 'Klasik RPA’dan farkı, işletmelerdeki dört temel kullanım alanı ve otomasyona geçişte izlenecek dört adım.',
+    lead: 'Yapay zekâ otomasyonu, algoritmaların ve büyük dil modellerinin tekrarlayan işleri insan müdahalesi olmadan yürütmesi, üstüne karmaşık verilerden anlam çıkarıp karar da alabilmesi demek. Hangi süreçlerin buna uygun olduğunu ve nereden başlanacağını bilmek, teknolojinin kendisinden daha çok fark yaratıyor.',
+    body:
+      '<h2>Yapay zekâ otomasyonu nedir?</h2>' +
+      '<p>Yapay zekâ otomasyonu; makine öğrenimi, doğal dil işleme (NLP), bilgisayarlı görü ve robotik süreç otomasyonu (RPA) gibi teknolojilerin bir arada çalışarak iş süreçlerini büyük ölçüde insansız yürütmesi. Farkı, yalnızca “otomatik” olmasında değil; belirsizlik içeren durumlarda da bağlamı değerlendirip bir karar üretebilmesinde.</p>' +
+
+      '<h2>Geleneksel otomasyon (RPA) ile farkı</h2>' +
+      '<p>Klasik otomasyon sistemleri kendilerine verilen katı kuralları uyguluyor: “A dosyası gelirse B klasörüne taşı” gibi. Yapay zekâ destekli otomasyon ise geçmiş verilerden öğreniyor, yapılandırılmamış veriyi (metin, ses, görsel) işleyebiliyor ve önceden tanımlanmamış durumlarda da bir karar üretebiliyor.</p>' +
+      T.table({
+        caption: 'Geleneksel otomasyon ile yapay zekâ otomasyonunun karşılaştırması',
+        head: ['Kriter', 'Geleneksel otomasyon (RPA)', 'Yapay zekâ otomasyonu'],
+        rows: [
+          ['Çalışma prensibi', 'Kural tabanlı (if/else mantığı)', 'Veri ve öğrenme tabanlı'],
+          ['Veri tipi', 'Yalnızca yapılandırılmış veri (Excel, SQL)', 'Metin, ses, görsel gibi yapılandırılmamış veri'],
+          ['Karar alma', 'Önceden tanımlı senaryonun dışına çıkamaz', 'Bağlamı analiz edip alternatif karar üretebilir'],
+          ['Hata yönetimi', 'Kural dışı durumda işlem durur', 'Anomaliyi fark edip kendini düzeltebilir']
+        ]
+      }) +
+      '<p>Bu, birinin diğerinden her zaman “daha iyi” olduğu anlamına gelmiyor. Girdisi hep aynı biçimde gelen, kuralı net yazılabilen bir iş için klasik RPA hem daha ucuz hem daha öngörülebilir kalıyor. Yapay zekâ otomasyonu, kuralın yazılamadığı ya da girdinin düzensiz olduğu yerlerde devreye giriyor.</p>' +
+
+      '<h2>İşletmelerde temel kullanım alanları</h2>' +
+      '<p>Yapay zekâ otomasyonu tek bir departmana sıkışmıyor; pazarlamadan finansa, müşteri ilişkilerinden operasyona kadar birçok iş akışına uygulanabiliyor.</p>' +
+      '<h3 class="hub-h3">Müşteri deneyimi ve destek</h3>' +
+      '<ul class="ticks">' +
+        '<li><strong>7/24 yanıt.</strong> Müşteri sorularını önceden yazılmış şablonlarla değil, büyük dil modeli altyapısıyla doğal bir dille yanıtlayan sohbet botları.</li>' +
+        '<li><strong>Talep sınıflandırma.</strong> Gelen e-posta ya da destek taleplerinin konusunu ve aciliyetini analiz ederek doğru ekibe otomatik atama.</li>' +
+      '</ul>' +
+      '<h3 class="hub-h3">Satış ve pazarlama</h3>' +
+      '<ul class="ticks">' +
+        '<li><strong>Potansiyel müşteri puanlama.</strong> Site trafiğini ve form davranışlarını analiz ederek satın alma ihtimali yüksek kişileri satış ekibine önceliklendirerek bildirme.</li>' +
+        '<li><strong>Kişiselleştirilmiş içerik.</strong> Kullanıcı segmentine göre e-posta metni, kampanya planlaması ve reklam bütçesi optimizasyonu.</li>' +
+      '</ul>' +
+      '<h3 class="hub-h3">Finans, muhasebe ve belge işleme</h3>' +
+      '<ul class="ticks">' +
+        '<li><strong>Akıllı belge okuma.</strong> Fatura, makbuz ve sözleşmeleri tarayıp gerekli verileri muhasebe sistemine hatasız aktarma.</li>' +
+        '<li><strong>Anomali tespiti.</strong> Harcama ya da ödemelerdeki olağan dışı hareketleri anlık tespit edip onay mekanizmasını devreye sokma.</li>' +
+      '</ul>' +
+      '<h3 class="hub-h3">Operasyon ve veri yönetimi</h3>' +
+      '<ul class="ticks">' +
+        '<li><strong>Otomatik veri toplama ve raporlama.</strong> Farklı platform ve pazar yerlerinden düzenli veri çekip temizleyerek yönetim panellerine işleme.</li>' +
+        '<li><strong>Stok ve talep tahmini.</strong> Geçmiş satış verisi, mevsimsellik ve piyasa eğilimlerini birleştirerek optimum stok seviyesini belirleme.</li>' +
+      '</ul>' +
+
+      '<h2>Her süreç buna uygun değil</h2>' +
+      '<p>Otomasyona en hazır süreçlerin ortak özelliği şu: sık tekrarlıyor, kuralı “şu olursa şunu yap” cümlesiyle tarif edilebiliyor ve girdisi düzenli geliyor. Nadiren tekrarlanan, her seferinde farklı yürüyen ve yoğun muhakeme gerektiren işleri otomatikleştirmeye çalışmak genellikle zarar ediyor: kurulum maliyeti, kazandırdığı zamandan fazla oluyor. Bu durumda dürüst cevap, o adımın insanda kalması.</p>' +
+
+      '<h2>Uygulamaya geçiş: dört adımlı yol haritası</h2>' +
+      '<p>En sık yapılan hata, tüm süreçleri aynı anda dönüştürmeye çalışmak. Sıralı ilerlemek başarı ihtimalini artırıyor:</p>' +
+      '<ol class="numbered">' +
+        '<li><strong>Süreç madenciliği yapın.</strong> Ekibin haftalık mesaisini en çok tüketen, tekrara dayalı ve hataya açık iki üç süreci listeleyin.</li>' +
+        '<li><strong>Veri altyapınızı hazırlayın.</strong> Yapay zekânın doğru çalışabilmesi için beslendiği verinin temiz ve erişilebilir olması gerekiyor; dağınık verileri önce merkezi bir yerde toplayın.</li>' +
+        '<li><strong>Küçük bir pilot ile başlayın.</strong> Etkisi hızlı ölçülebilecek, dar kapsamlı bir otomasyonla (müşteri taleplerine otomatik ilk yanıt, fatura ayrıştırma gibi) başlayıp geri bildirim toplayın.</li>' +
+        '<li><strong>Ölçün ve kademeli genişletin.</strong> Kazanılan zamanı, maliyet düşüşünü ve doğruluk oranını takip edin; sonuç olumluysa sistemi diğer süreçlere yayın.</li>' +
+      '</ol>' +
+
+      '<h2>Yapay zekâ, çalışanın yerini mi alıyor?</h2>' +
+      '<p>Pratikte gördüğümüz tablo bu değil. Yapay zekâ otomasyonunun devraldığı işler genelde kimsenin yapmaktan keyif almadığı işler: aynı veriyi ikinci kez girmek, belge taramak, durum sormak için beklemek. Bu adımlar otomatikleştiğinde ekip küçülmüyor; zaman stratejiye ve müşteri ilişkisine kayıyor. Asıl risk geç kalmakta: manuel süreçte ısrar eden işletmeler, erken adapte olan rakiplerine karşı hız ve maliyet açısından geride kalıyor.</p>',
+    faq: [
+      { q: 'Yapay zeka otomasyonu ile RPA arasındaki fark nedir?', a: 'Klasik RPA yalnızca önceden tanımlanmış kuralları uyguluyor ve kural dışı bir durumda işlem duruyor. Yapay zekâ otomasyonu ise metin, ses ve görsel gibi yapılandırılmamış veriyi işleyebiliyor, geçmiş verilerden öğreniyor ve tanımlanmamış durumlarda da bağlamı değerlendirip bir karar üretebiliyor.' },
+      { q: 'Hangi süreçler yapay zeka otomasyonuna uygun?', a: 'Sık tekrarlayan, kuralı “şu olursa şunu yap” cümlesiyle tarif edilebilen ve girdisi düzenli gelen süreçler en uygun adaylar. Nadiren tekrarlanan ve yoğun muhakeme gerektiren işleri otomatikleştirmek genellikle kurulum maliyetini geri kazandırmıyor.' },
+      { q: 'Yapay zeka otomasyonuna nasıl başlanır?', a: 'En çok zaman tüketen iki üç süreci listeleyip veri altyapısını düzene sokarak başlayın, ardından dar kapsamlı bir pilot projeyle (örneğin fatura ayrıştırma) sonucu ölçün. Pilot işe yararsa sistemi kademeli olarak diğer süreçlere genişletin.' },
+      { q: 'Yapay zeka otomasyonu çalışan sayısını azaltır mı?', a: 'Pratikte gördüğümüz bu değil. Otomasyonun devraldığı işler genellikle kimsenin yapmaktan keyif almadığı, tekrara dayalı işler; bunlar kalkınca ekip küçülmüyor, zaman stratejiye ve müşteri ilişkisine kayıyor.' }
+    ],
+    related: [
+      { title: 'Yapay zekâ otomasyonu', desc: 'Bu yazıdaki yaklaşımın uygulandığı hizmet', path: '/otomasyon/yapay-zeka-otomasyonu/' },
+      { title: 'İş süreçleri otomasyonu', desc: 'Otomasyon hizmetlerine genel bakış', path: '/otomasyon/' },
+      { title: 'İşletme otomasyonu nedir?', desc: 'Otomasyona ihtiyacınız olduğunun işaretleri', path: '/blog/isletme-otomasyonu-nedir/' },
+      { title: 'Özel yazılım geliştirme', desc: 'Hazır çözümün yetmediği entegrasyonlar için', path: '/ozel-yazilim/' }
+    ],
+    closingH2: 'Sürecinizi birlikte değerlendirelim',
+    closingP: 'Ekibinizde en çok zaman kaybettiren tekrarlayan süreci anlatın; yapay zekâyla otomatikleştirmeye değip değmediğini dürüstçe söyleyelim. Değmiyorsa bunu da söyleriz.',
+    closingSubject: 'Yapay zekâ otomasyonu talebi'
   }
 ];
